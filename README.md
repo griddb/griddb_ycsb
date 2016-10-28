@@ -18,9 +18,9 @@ Library building and program execution have been checked in the following enviro
 
 1. Install YCSB
 
-    '$ curl -O --location https://github.com/brianfrankcooper/YCSB/releases/download/0.10.0/ycsb-0.10.0.tar.gz'  
-    '$ tar xfvz ycsb-0.10.0.tar.gz'  
-    '$ cd ycsb-0.10.0'
+    $ curl -O --location https://github.com/brianfrankcooper/YCSB/releases/download/0.10.0/ycsb-0.10.0.tar.gz  
+    $ tar xfvz ycsb-0.10.0.tar.gz  
+    $ cd ycsb-0.10.0  
 
     Please refer to https://github.com/brianfrankcooper/YCSB/wiki/Getting-Started.
 
