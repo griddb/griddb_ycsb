@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <project name="ycsb" default="compile" basedir=".">
+   
+    <property name="src.dir"     value="src"/>
+    <property name="lib.dir"     value="lib"/>
+    <property name="classes.dir" value="class"/>
+
+    <path id="build.classpath">
+        <fileset dir="${lib.dir}">
+          <include name="**/*.jar" />
+        </fileset>
+    </path>
+	
+	<target name="griddb">
+		<property name="db.name" value="griddb"/>
+		<antcall target="dbcompile"/>
+	</target>
+
+	<target name="dbcompile">
+	    <path id="dbclasspath">
+	        <fileset dir="${db.name}-binding/lib" includes="**/*.jar"/>
+	        <fileset dir="./lib" includes="*.jar"/>
+	    </path>
+		
+    	<mkdir dir="${classes.dir}"/>
+        <javac srcdir="${db.name}/src" destdir="${classes.dir}" classpathref="dbclasspath" deprecation="on">
+          <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+        <antcall target="makejar"/>
+    </target>
+
+
+   	<target name ="makejar" description="Create a jar for the YCSB project">
+		<jar jarfile="${db.name}-binding/lib/${db.name}-binding.jar" includes="**/*.class" basedir="${classes.dir}"/>
+	</target>
+   	
+    <target name="clean">
+       <delete includeemptydirs="true">
+          <fileset dir="${class.dir}" includes="**/*"/>
+       </delete>
+    </target>
+
+</project>
+
