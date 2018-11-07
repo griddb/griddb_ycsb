@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.yahoo.ycsb</groupId>
+	<artifactId>griddb-binding</artifactId>
+	<version>1.0.1</version>
+	<name>GridDB Binding</name>
+	<description>GridDB connector for YCSB</description>
+	<packaging>jar</packaging>
+	<properties>
+		<ycsb.version>0.10.0</ycsb.version>
+		<gridstore.version>3.0.0</gridstore.version>
+	</properties>
+	<build>
+		<sourceDirectory>src/</sourceDirectory>
+		<finalName>griddb-binding</finalName>
+		<directory>${basedir}/../griddb-binding/lib</directory>
+		<plugins>
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-clean-plugin</artifactId>
+		        <version>2.4.1</version>
+				<executions>
+					<execution>
+						<id>default-clean</id>
+						<configuration>
+							<excludeDefaultDirectories>true</excludeDefaultDirectories>
+							<filesets>
+								<fileset>
+									<directory>${basedir}/../griddb-binding/lib</directory>
+									<includes>
+										<include>${basedir}/../griddb-binding/lib/griddb-binding.jar</include>
+									</includes>							
+									<excludes>
+										<exclude>${basedir}/../griddb-binding/lib/gridstore.jar</exclude>
+									</excludes>
+									<followSymlinks>false</followSymlinks>
+								</fileset>
+							</filesets>
+						</configuration>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.yahoo.ycsb</groupId>
+			<artifactId>core</artifactId>
+			<version>${ycsb.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/../lib/core-0.10.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.toshiba.mwcloud.gs</groupId>
+			<artifactId>gridstore</artifactId>
+			<version>${gridstore.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/../griddb-binding/lib/gridstore.jar</systemPath>
+		</dependency>
+	</dependencies>
+</project>
