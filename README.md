@@ -43,8 +43,12 @@ Library building and program execution have been checked in the following enviro
 
 Run the following command,   
 
+    (A) Using Ant:  
     $ ant griddb  
-    
+
+    (B) Using Maven:  
+    $ cd griddb; mvn package
+
 and create the following jar files.  
 
     griddb-binding/lib/griddb-binding.jar
