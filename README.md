@@ -4,6 +4,9 @@ GridDB connector for YCSB
 
 GridDB connector for YCSB is a connector that allows execution of [YCSB (Yahoo! Cloud Serving Benchmark)](https://github.com/brianfrankcooper/YCSB/wiki) workloads against GridDB for benchmarking purposes.
 
+We are currently undergoing [PR for YCSB repository](https://github.com/brianfrankcooper/YCSB/pull/1258) by [#1](../../issues/1) .  
+Please refer to it for the latest version.
+
 ## Operating environment
 
 Library building and program execution have been checked in the following environment.
